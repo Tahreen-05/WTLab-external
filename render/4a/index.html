@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+    <title>
+        DYNAMIC WEB PAGE
+    </title>
+</head>
+
+<body>
+    <p id="greetings"></p>
+    <p id="lucky-number"></p>
+    <p id="Last-modified"></p>
+    <script>
+        // create objects
+        const date = new Date();
+        const hours = date.getHours();
+        let greeting;
+        if (hours < 12) {
+            greeting = "Good Morning";
+
+        } else if (hours < 18) {
+            greeting = "good afternoon";
+        }
+        else {
+            greeting = "good evening";
+        }
+        document.getElementById("greetings").innerHTML = greeting;
+        const lucky = Math.floor(Math.random() * 50);
+        document.getElementById("lucky-number").innerHTML = `The lucky number is ${lucky}`;;
+        const lastmodified = document.lastModified;
+        document.getElementById("Last-modified").innerHTML = `Last Modified: ${lastmodified}`;
+    </script>
+</body>
+
+</html>

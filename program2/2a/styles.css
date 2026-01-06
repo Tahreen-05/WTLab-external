@@ -1,0 +1,17 @@
+.body {
+    background: wheat;
+}
+
+.h1 {
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.anchortags {
+    text-align: center;
+    border: solid;
+    background-color: darksalmon;
+}

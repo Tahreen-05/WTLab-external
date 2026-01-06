@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Event Handling & DOM</title>
+
+    <script>
+        // Page load event
+        function onLoadMsg() {
+            alert("Fill the student details carefully");
+        }
+
+        // Form validation
+        function validateForm() {
+            var roll = document.getElementById("roll");
+            var name = document.getElementById("name");
+            var pwd = document.getElementById("pwd");
+
+            if (roll.value === "" || name.value === "" || pwd.value === "") {
+                alert("All fields are mandatory");
+                return false;
+            }
+
+            alert("Form submitted successfully");
+        }
+
+        // Reset event
+        function resetForm() {
+            alert("Form reset");
+        }
+
+        // Change color on focus
+        function focusInput(id) {
+            document.getElementById(id).style.color = "red";
+        }
+
+        // Restore color on blur
+        function blurInput(id) {
+            document.getElementById(id).style.color = "black";
+        }
+
+        // Disable section after selection
+        function disableSection() {
+            document.getElementById("secA").disabled = true;
+            document.getElementById("secB").disabled = true;
+        }
+    </script>
+</head>
+
+<body onload="onLoadMsg()">
+
+    <h2>Student Registration Form</h2>
+
+    <form onsubmit="return validateForm();" onreset="resetForm();">
+
+        Roll No:
+        <input type="text" id="roll" onfocus="focusInput('roll')" onblur="blurInput('roll')"><br><br>
+
+        Name:
+        <input type="text" id="name" onfocus="focusInput('name')" onblur="blurInput('name')"><br><br>
+
+        Password:
+        <input type="password" id="pwd" onfocus="focusInput('pwd')" onblur="blurInput('pwd')"><br><br>
+
+        Section:<br>
+        <input type="radio" id="secA" name="sec" onclick="disableSection()"> A <br>
+        <input type="radio" id="secB" name="sec" onclick="disableSection()"> B <br><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+
+    </form>
+
+</body>
+
+</html>

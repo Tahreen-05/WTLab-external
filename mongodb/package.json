@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/Tahreen-05/WTLab-external#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "corss": "^2.8.5",
     "express": "^5.2.1",
     "mongoose": "^9.1.1"
   }

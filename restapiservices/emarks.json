@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "subject": "Mathematics",
+        "marks": 85
+    },
+    {
+        "id": 2,
+        "subject": "Physics",
+        "marks": 90
+    },
+    {
+        "id": 3,
+        "subject": "Chemistry",
+        "marks": 78
+    }
+]

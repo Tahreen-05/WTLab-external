@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Alice Johnson",
+        "dept": "Computer Science"
+    },
+    {
+        "id": 2,
+        "name": "Bob Smith",
+        "dept": "Mathematics"
+    },
+    {
+        "id": 3,
+        "name": "Charlie Brown",
+        "dept": "Physics"
+    }
+]

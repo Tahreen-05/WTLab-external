@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+    <title>MARKS MEMO</title>
+</head>
+
+<body>
+    <h1>Marks Memo</h1>
+    <table>
+
+        <tr>
+            <th>S.no</th>
+            <th>Code</th>
+            <th>Subject</th>
+            <th>Internal Marks</th>
+            <th>External Marks</th>
+        </tr>
+        <% data.forEach(function(row){%>
+            <tr>
+                <td>
+                    <%= row.id %>
+                </td>
+                <td>
+                    <%= row.code%>
+                </td>
+                <td>
+                    <%= row.sub%>
+                </td>
+                <td>
+                    <%= row.imarks%>
+                </td>
+                <td>
+                    <%= row.emarks%>
+                </td>
+            </tr>
+            <% }); %>
+
+    </table>
+
+</body>
+
+</html>

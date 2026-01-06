@@ -1,0 +1,116 @@
+<html>
+
+<head>
+    <title>Event Handling</title>
+</head>
+
+<body onload="showOnLoad()">
+
+    <center>
+        <h1>Event Handling Demo</h1>
+
+        <form onsubmit="formValidate()" onreset="clearForm()">
+            <table cellpadding="8">
+
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="text" id="sname" onblur="alert('Please fill out your name')">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Phone No.</td>
+                    <td>
+                        <input type="text" id="phone" onfocus="OnFocusPhone()" onblur="onBlurPhone()">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Contact Address</td>
+                    <td>
+                        <textarea id="cta"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Permanent Address</td>
+                    <td>
+                        <textarea id="pta"></textarea>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <p id="hovertext">Move the Mouse over this text</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Clear Form">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="button" value="Button" id="btn">
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </center>
+
+    <script>
+
+        // Functions for event handling 
+        function showOnLoad() {
+            alert("Form Loading")
+        }
+        function formValidate() {
+            alert("Form submitted successfully")
+        }
+        function clearForm() {
+            alert("Form cleared")
+        }
+        function OnFocusPhone() {
+            document.getElementById("phone").style.color = "red"
+        }
+        function onBlurPhone() {
+            document.getElementById("phone").style.color = "black"
+        }
+        function copyAddress() {
+            var addr = document.getElementById("cta").value;
+            document.getElementById("pta").value = addr;
+
+        }
+
+        // DOM manupilations
+        var txt = document.getElementById("hovertext")
+
+        txt.onmouseover = function () {
+            txt.style.color = "blue"
+            alert("MouseOver event")
+        }
+        txt.onmouseout = function () {
+            txt.style.color = "black"
+            alert("MouseOut event")
+        }
+
+        // Event listener
+        var button = document.getElementById("btn")
+
+        button.addEventListener("click", function () {
+            alert("button clicked Listener-1")
+        })
+        button.addEventListener("click", function () {
+            alert("button clicked Listener-2")
+        })
+
+    </script>
+</body>
+
+</html>

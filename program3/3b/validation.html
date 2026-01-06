@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<head>
+    <title>
+        VALIDATION FORM
+    </title>
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmpassword = document.getElementById("confirm").value;
+            var mobile = document.getElementById("mobile").value;
+            if (name === "") {
+                alert("Name field should be filled");
+                return false;
+            }
+            const emailpattern = /^[^\s@]+@+[^\s@]+\.+[^\s@]+$/;
+            if (!emailpattern.test(email)) {
+                alert("enter valid email");
+                return false;
+            }
+            if (mobile.length != 10) {
+                alert("Enter 10 digit mobile number");
+                return false;
+            }
+            if (password != confirmpassword) {
+                alert("passwords doesn't match");
+                return false;
+            }
+            alert("registration completed");
+            return true;
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <h2>
+        REGISTRATION FORM
+    </h2>
+    <form onsubmit="return validateForm()">
+        Name:
+        <input type="text" id="name"><br><br>
+        Email:
+        <input type="text" id="email"><br><br>
+        Password:
+        <input type="password" id="password"><br><br>
+        confirm password:
+        <input type="password" id="confirm"><br><br>
+        mobile:
+        <input type="number" id="mobile"><br><br>
+        <input type="submit"><br>
+
+
+    </form>
+</body>
+
+</html>

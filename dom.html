@@ -1,76 +1,121 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Event Handling & DOM</title>
-
-    <script>
-        // Page load event
-        function onLoadMsg() {
-            alert("Fill the student details carefully");
-        }
-
-        // Form validation
-        function validateForm() {
-            var roll = document.getElementById("roll");
-            var name = document.getElementById("name");
-            var pwd = document.getElementById("pwd");
-
-            if (roll.value === "" || name.value === "" || pwd.value === "") {
-                alert("All fields are mandatory");
-                return false;
-            }
-
-            alert("Form submitted successfully");
-        }
-
-        // Reset event
-        function resetForm() {
-            alert("Form reset");
-        }
-
-        // Change color on focus
-        function focusInput(id) {
-            document.getElementById(id).style.color = "red";
-        }
-
-        // Restore color on blur
-        function blurInput(id) {
-            document.getElementById(id).style.color = "black";
-        }
-
-        // Disable section after selection
-        function disableSection() {
-            document.getElementById("secA").disabled = true;
-            document.getElementById("secB").disabled = true;
-        }
-    </script>
+    <title>Event Handling</title>
 </head>
 
-<body onload="onLoadMsg()">
+<body onload="showOnLoad()">
 
-    <h2>Student Registration Form</h2>
+    <center>
+        <h1>Event Handling Demo</h1>
 
-    <form onsubmit="return validateForm();" onreset="resetForm();">
+        <form onsubmit="formValidate()" onreset="clearForm()">
+            <table cellpadding="8">
 
-        Roll No:
-        <input type="text" id="roll" onfocus="focusInput('roll')" onblur="blurInput('roll')"><br><br>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="text" id="sname" onblur="alert('Please fill out your name')">
+                    </td>
+                </tr>
 
-        Name:
-        <input type="text" id="name" onfocus="focusInput('name')" onblur="blurInput('name')"><br><br>
+                <tr>
+                    <td>Phone No.</td>
+                    <td>
+                        <input type="text" id="phone" onfocus="OnFocusPhone()" onblur="onBlurPhone()">
+                    </td>
+                </tr>
 
-        Password:
-        <input type="password" id="pwd" onfocus="focusInput('pwd')" onblur="blurInput('pwd')"><br><br>
+                <tr>
+                    <td>Contact Address</td>
+                    <td>
+                        <textarea id="cta" rows="3" cols="25"></textarea>
+                    </td>
+                </tr>
 
-        Section:<br>
-        <input type="radio" id="secA" name="sec" onclick="disableSection()"> A <br>
-        <input type="radio" id="secB" name="sec" onclick="disableSection()"> B <br><br>
+                <tr>
+                    <td>Permanent Address</td>
+                    <td>
+                        <textarea id="pta" rows="3" cols="25"></textarea>
+                    </td>
+                </tr>
 
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="button" value="Same as Contact Address" onclick="copyAddress()">
+                    </td>
+                </tr>
 
-    </form>
+                <tr>
+                    <td colspan="2" align="center">
+                        <p id="hovertext">Move the Mouse over this text</p>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Clear Form">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="button" value="Button" id="btn">
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </center>
+
+    <script>
+
+        // Functions for event handling 
+        function showOnLoad() {
+            alert("Form Loading")
+        }
+        function formValidate() {
+            alert("Form submitted successfully")
+        }
+        function clearForm() {
+            alert("Form cleared")
+        }
+        function OnFocusPhone() {
+            document.getElementById("phone").style.color = "red"
+        }
+        function onBlurPhone() {
+            document.getElementById("phone").style.color = "black"
+        }
+        function copyAddress() {
+            var addr = document.getElementById("cta").value;
+            document.getElementById("pta").value = addr;
+
+        }
+
+        // DOM manupilations
+        var txt = document.getElementById("hovertext")
+
+        txt.onmouseover = function () {
+            txt.style.color = "blue"
+            alert("MouseOver event")
+        }
+        txt.onmouseout = function () {
+            txt.style.color = "black"
+            alert("MouseOut event")
+        }
+
+        // Event listener
+        var button = document.getElementById("btn")
+
+        button.addEventListener("click", function () {
+            alert("button clicked Listener-1")
+        })
+        button.addEventListener("click", function () {
+            alert("button clicked Listener-2")
+        })
+
+    </script>
 </body>
 
 </html>
